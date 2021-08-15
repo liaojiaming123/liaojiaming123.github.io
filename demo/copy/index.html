@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS复制内容-demo</title>
+  <style>
+    h1,h3{
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>纯JS实现内容复制</h1>
+  <h3 onclick="myFun(this)">点我选择复制我的内容1111</h3>
+  <h3 onclick="myFun(this)">点我选择复制我的内容2222</h3>
+  <h3 onclick="myFun(this)">点我选择复制我的内容3333</h3>
+  <script src="./copy.js"></script>
+  <script>
+    function myFun(e) {
+      copy(selectText(e));
+    }
+  </script>
+</body>
+</html>
