@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      width: 100%;
+      height: 100vh;
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body onclick="toggleFullScreen(event)">
+  <h1>3545657856425</h1>
+  <script>
+    // var el = document;
+    function fullScreen(el) {
+      var isFullscreen = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
+      if (!isFullscreen) { //进入全屏,多重短路表达式
+          (el.requestFullscreen && el.requestFullscreen()) ||
+          (el.mozRequestFullScreen && el.mozRequestFullScreen()) ||
+          (el.webkitRequestFullscreen && el.webkitRequestFullscreen()) || 
+          (el.msRequestFullscreen && el.msRequestFullscreen());
+
+      } else { //退出全屏,三目运算符
+          document.exitFullscreen ? document.exitFullscreen() :
+          document.mozCancelFullScreen ? document.mozCancelFullScreen() :
+          document.webkitExitFullscreen ? document.webkitExitFullscreen() : '';
+      }
+  }
+
+    function toggleFullScreen(e) {
+        var el = e.srcElement || e.target; //target兼容Firefox
+        // el.innerHTML == '点我全屏' ? el.innerHTML = '退出全屏' : el.innerHTML = '点我全屏';
+        fullScreen(el);
+    }
+  </script>
+  <script>
+    /**
+      * [requestFullScreen 设置全屏]
+      */
+
+      function requestFullScreen() {
+        var de = document.body;
+        if (de.requestFullscreen) {
+          de.requestFullscreen();
+        } else if (de.mozRequestFullScreen) {
+          de.mozRequestFullScreen();
+        } else if (de.webkitRequestFullScreen) {
+          de.webkitRequestFullScreen();
+        }
+      }
+      requestFullScreen();
+  </script>
+  
+</body>
+</html>
